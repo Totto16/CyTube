@@ -18,13 +18,18 @@ jobs:
                   submodules: true
 
             - name: Install
-              run: npm install
+              run: |
+                  npm install
 
             - name: Build
               run: |
                   npm run compile
+                  mkdir -p "dist/${{ github.event_name == 'push' && 'main' || format('pr_{0}',github.ref_name) }}"
+                  mv script.js "dist/${{ github.event_name == 'push' && 'main' || format('pr_{0}',github.ref_name) }}/"
+                  mv style.css "dist/${{ github.event_name == 'push' && 'main' || format('pr_{0}',github.ref_name) }}/"
+
             - name: Deploy to GH Pages
               uses: peaceiris/actions-gh-pages@v3
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ${{ github.event_name == 'push' && 'main' || format('pr_{0}',github.ref_name) }}
+                  publish_dir: dist/
