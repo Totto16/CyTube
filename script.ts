@@ -197,7 +197,23 @@ let buttons: Button[] = [
 		link: "https://twitch.tv/stegi",
 		background: {
 			normal: "#6441a5",
-			hover: "linear-gradient(#aa1376,#721ca2 40%,#471160)",
+			hover: "linear-gradient(#6441a5,#471160 50%,#6441a5) ",
+		},
+	},
+	{
+		name: "StegiShorts",
+		link: "https://www.youtube.com/@StegiShorts",
+		background: {
+			normal: "#b81414",
+			hover: "linear-gradient(#ec5353,#a51b0b 50%,#ff0000)",
+		},
+	},
+	{
+		name: "StegiTrash",
+		link: "https://www.youtube.com/@StegiTrash",
+		background: {
+			normal: "#b81414",
+			hover: "linear-gradient(#ec5353,#a51b0b 50%,#ff0000)",
 		},
 	},
 ]
@@ -243,6 +259,7 @@ function addButtons() {
 function start() {
 	setIcon()
 	setBranding()
+
 	// disabled atm
 	// attachUserColorListener()
 	addButtons()
