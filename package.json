@@ -1,0 +1,19 @@
+{
+  "name": "stegi-cytube-modifications",
+  "version": "1.0.0",
+  "description": "Modifies the appearance of teh CyTube Channel of stegi",
+  "main": "./script.js",
+  "scripts": {
+    "compile": "tsc"
+  },
+  "dependencies": {
+    "typescript": "5.2.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.3"
+  }
+}
