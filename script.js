@@ -4,10 +4,6 @@ function setIcon() {
     document.head.appendChild(div.firstChild);
 }
 
-function setTitle() {
-    document.title = "stegiTube";    
-}
-
 function setBranding() {
     var div = document.createElement('div');
     div.innerHTML = '<a class="navbar-brand" href="https://twitch.tv/stegi">stegiTube</a>';
@@ -15,5 +11,4 @@ function setBranding() {
 }
  
 setIcon();
-setTitle();
 setBranding();
