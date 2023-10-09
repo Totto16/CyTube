@@ -235,7 +235,7 @@ function addButtons() {
 		background-image: ${hover};
 	 }
 `,
-			id
+			`${id}-style`
 		)
 	}
 }
@@ -243,7 +243,8 @@ function addButtons() {
 function start() {
 	setIcon()
 	setBranding()
-	attachUserColorListener()
+	// disabled atm
+	// attachUserColorListener()
 	addButtons()
 }
 

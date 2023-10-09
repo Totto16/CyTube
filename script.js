@@ -155,13 +155,14 @@ function addButtons() {
 	  #${id}:hover {
 		background-image: ${hover};
 	 }
-`, id);
+`, `${id}-style`);
     }
 }
 function start() {
     setIcon();
     setBranding();
-    attachUserColorListener();
+    // disabled atm
+    // attachUserColorListener()
     addButtons();
 }
 start();
