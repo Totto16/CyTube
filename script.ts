@@ -177,15 +177,74 @@ function attachUserColorListener(): void {
 	addStylesForUsers(calculateUserList(userListElement))
 
 	observeDOM(userListElement, () => {
-		console.log("RECEIVED callback")
 		addStylesForUsers(calculateUserList(userListElement))
 	})
+}
+
+interface Button {
+	name: string
+	link: string
+	background: {
+		normal: string
+		hover: string
+	}
+}
+
+// add more buttons here
+let buttons: Button[] = [
+	{
+		name: "Twitch",
+		link: "https://twitch.tv/stegi",
+		background: {
+			normal: "#6441a5",
+			hover: "linear-gradient(#aa1376,#721ca2 40%,#471160)",
+		},
+	},
+]
+
+function addButtons() {
+	let navBars = document.getElementsByClassName("navbar-nav")
+
+	if (navBars.length == 0) {
+		return siteChanged()
+	}
+
+	for (const {
+		name,
+		link,
+		background: { hover, normal },
+	} of buttons) {
+		let buttonElement = document.createElement("li")
+
+		const id = `${name.toLowerCase()}-ref-button`
+
+		buttonElement.innerHTML = `
+<a id="${id}" href="${link}" target="_blank">
+	${name}
+</a>`
+
+		navBars[0].appendChild(buttonElement)
+
+		addOrModifyStyles(
+			`
+	#${id}{
+		background-color: ${normal};
+	 }
+	
+	  #${id}:hover {
+		background-image: ${hover};
+	 }
+`,
+			id
+		)
+	}
 }
 
 function start() {
 	setIcon()
 	setBranding()
 	attachUserColorListener()
+	addButtons()
 }
 
 start()
